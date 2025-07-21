@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
 
-function App() {
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginForm from './components/LoginForm';
+import Home from "./components/Home";
+import ViewAllMeals from './pages/ViewAllMeals';
+import AddMeal from "./pages/AddMeal";
+import SuggestMealsbyMood from "./pages/SuggestMealsbyMood";
+import RegisterForm from "./components/RegisterForm";  // ✅ Make sure the file path is correct
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/add-Meal" element={<AddMeal />} />
+        <Route path="/all-meals" element={<ViewAllMeals />} />
+        <Route path="/suggestion-meals" element={<SuggestMealsbyMood/>} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
-export default App;
+export default App; // ✅ THIS LINE IS CRUCIAL
