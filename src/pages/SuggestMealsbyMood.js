@@ -1,15 +1,18 @@
 // src/components/SuggestMealsByMood.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './SuggestMealsbyMood.css';
 
 const SuggestMealsByMood = () => {
-  const [moodType, setMoodType] = useState('SAD');
+  const [moodType, setMoodType] = useState('How you are feeling today ??');
   const [suggestedMeals, setSuggestedMeals] = useState([]);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSuggest = async () => {
-    const userId = 1; // Default user ID
-    const token = localStorage.getItem('token'); // JWT token saved on login
+    const userId = 1;
+    const token = localStorage.getItem('token');
 
     try {
       const response = await axios.get(`http://localhost:8080/api/suggestions`, {
@@ -29,37 +32,46 @@ const SuggestMealsByMood = () => {
     }
   };
 
+  const handleAddMealClick = () => {
+    navigate('/add-meal');
+  };
+
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="suggest-mood-container">
       <h2>Suggest Meals by Mood</h2>
 
-      <div style={{ marginBottom: '10px' }}>
+      <div className="mood-controls">
         <label>Select Mood: </label>
         <select value={moodType} onChange={(e) => setMoodType(e.target.value)}>
           <option value="HAPPY">Happy</option>
           <option value="SAD">Sad</option>
-          <option value="STRESSED">Stressed</option>
+          <option value="NEUTRAL">Neutral</option>
           <option value="ANGRY">Angry</option>
           <option value="EXCITED">Excited</option>
         </select>
 
-        <button onClick={handleSuggest} style={{ marginLeft: '10px' }}>
+        <button onClick={handleSuggest} className="suggest-btn">
           Get Suggestions
+        </button>
+
+        <button onClick={handleAddMealClick} className="add-meal-btn">
+          Add Meals
         </button>
       </div>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error-msg">{error}</p>}
 
       {suggestedMeals.length > 0 && (
         <div>
           <h3>Suggested Meals:</h3>
-          <ul>
+          <div className="meal-grid">
             {suggestedMeals.map((meal) => (
-              <li key={meal.id}>
-                <strong>{meal.name}</strong> - {meal.cuisine}
-              </li>
+              <div className="meal-card" key={meal.id}>
+                <h4>{meal.name}</h4>
+                <p>{meal.description}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>

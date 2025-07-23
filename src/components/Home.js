@@ -8,14 +8,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h2>Welcome to MoodMeal!</h2>
-
-      <AddMealForm />
-      <Link to="/all-meals">
-        <button>View All Meals</button>
-      </Link>
-      <Link to="/suggestion-meals">
-      <button>Suggest Meals By Mood</button>
-      </Link>
+      <p>Personalized meal suggestions based on your mood.</p>
     </div>
   );
 };

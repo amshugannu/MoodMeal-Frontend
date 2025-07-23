@@ -4,9 +4,6 @@ import { useNavigate, Link } from "react-router-dom";
 import './registerform.css';
 
 
-
-
-
 const RegisterForm = () => {
 const navigate = useNavigate();
   const [formData, setFormData] = useState({

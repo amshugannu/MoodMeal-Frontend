@@ -1,0 +1,116 @@
+/* src/components/SuggestMealsByMood.css */
+.suggest-mood-container {
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.75); /* dark translucent */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 900px;
+  color: white;
+  backdrop-filter: blur(10px);
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.suggest-mood-container:hover {
+  transform: scale(1.01);
+}
+
+h2 {
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mood-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.mood-controls label {
+color : white;
+}
+
+.mood-controls select {
+  padding: 10px 15px;
+  background-color: rgba(200, 200, 200, 0.2); /* light translucent grey */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.mood-controls select option {
+  color: black;
+}
+
+.suggest-btn,
+.add-meal-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.suggest-btn {
+  background-color: #e50914;
+  color: white;
+}
+
+.suggest-btn:hover {
+  background-color: #f6121d;
+}
+
+.add-meal-btn {
+  background-color: #e50914;
+    color: white;
+}
+
+.add-meal-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-msg {
+  color: #ff4c4c;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.meal-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  color: white;
+}
+
+.meal-card:hover {
+  transform: scale(1.03);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.meal-card h4 {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: #ffcc00;
+}
+
+.meal-card p {
+  margin: 0;
+  color: #ddd;
+}

@@ -1,17 +1,26 @@
 .add-meal-container {
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fdfdfd;
+  max-width: 450px;
+  margin: 40px auto; /* was 60px auto */
+  padding: 25px 25px; /* was 40px 35px */
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.75); /* Netflix-style dark glass */
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   font-family: 'Segoe UI', sans-serif;
 }
 
+
+.add-meal-container:hover {
+  transform: scale(1.01);
+}
+
+
 .add-meal-container h2 {
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+  color: white;
+  font-size: 24px;
+  margin-bottom: 16px;
 }
 
 .add-meal-container form > div {
@@ -21,53 +30,93 @@
 .add-meal-container label {
   display: block;
   font-weight: 600;
-  margin-bottom: 5px;
-  color: #444;
+  margin-bottom: 2px;
+  color: white;
 }
 
-.add-meal-container input,
-.add-meal-container select,
-.add-meal-container textarea {
+.add-meal-container input[type="text"],
+.add-meal-container input[type="password"],
+.add-meal-container textarea{
   width: 100%;
-  padding: 10px 12px;
-  font-size: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  transition: border 0.2s;
-}
-
-.add-meal-container input:focus,
-.add-meal-container select:focus,
-.add-meal-container textarea:focus {
-  border-color: #5c9ded;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(200, 200, 200, 0.3); /* light grey with 30% opacity */
+  color: #fff;
+  font-size: 16px;
   outline: none;
 }
 
+.add-meal-container select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(200, 200, 200, 0.3); /* transparent light grey */
+  color: #000;
+  font-size: 16px;
+  outline: none;
+  appearance: none; /* Removes default arrow in some browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+.add-meal-container input::placeholder,
+.add-meal-container textarea::placeholder {
+  color: #b3b3b3;
+}
+
+/*.add-meal-container input:focus,
+.add-meal-container select:focus,
+.add-meal-container textarea:focus {
+  border-color: #4c8ef7;
+  background-color: #fff;
+  outline: none;
+}*/
+
 .add-meal-container textarea {
   resize: vertical;
-  height: 100px;
+  height: 120px;
 }
 
 .add-meal-container button {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  background-color: #5c9ded;
-  color: white;
+  background-color: #e50914; /* Netflix red */
   border: none;
-  border-radius: 8px;
+  color: white;
+  padding: 14px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
   transition: background-color 0.3s;
 }
 
 .add-meal-container button:hover {
-  background-color: #4287e0;
+  background-color: #f6121d;
 }
+
 
 .add-meal-container p {
   text-align: center;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 18px;
   color: green;
+}
+
+.add-meal-container p.error {
+  color: crimson;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.button-group button {
+  width: 100%;
 }

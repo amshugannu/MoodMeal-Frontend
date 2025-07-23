@@ -35,7 +35,7 @@ const LoginForm = () => {
 
 
       // Redirect to home
-      navigate("/home");
+      navigate("/suggestion-meals");
     } catch (err) {
       console.error("Login failed:", err);
       setError("Invalid credentials. Please try again.");

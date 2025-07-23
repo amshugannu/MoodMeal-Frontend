@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import './addmeal.css';
-
 
 const AddMeal = () => {
   const [meal, setMeal] = useState({
@@ -14,6 +14,7 @@ const AddMeal = () => {
   });
 
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setMeal({
@@ -55,11 +56,9 @@ const AddMeal = () => {
 
   return (
     <div className="add-meal-container">
-
       <h2>Add New Meal</h2>
-      {status && <p>{status}</p>}
-      <form onSubmit={handleSubmit}>
 
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Meal Name:</label><br />
           <input type="text" name="name" value={meal.name} onChange={handleChange} required />
@@ -90,9 +89,21 @@ const AddMeal = () => {
           <label>Allergens:</label><br />
           <input type="text" name="allergens" value={meal.allergens} onChange={handleChange} required />
         </div>
+
         <br />
-        <button type="submit">Add Meal</button>
+
+        {/* Status message placed here */}
+        {status && <p style={{ color: status.includes("successfully") ? "green" : "red" }}>{status}</p>}
+
+        <div className= "button-group">
+              <button type="submit">Add Meal</button>
+
+              <button onClick={() => navigate("/suggestion-meals")}>
+                        Get Meals by Mood
+              </button>
+        </div>
       </form>
+
     </div>
   );
 };
